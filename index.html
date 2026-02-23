@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="google-site-verification" content="pQ4u39SytYO1eCdzBizNZ85gsy5m8flN3JlDY3aK0Nc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DotUp Web Studio | Elevamos tu presencia digital</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <meta name="description" content="DotUp Web Studio: Diseño y desarrollo web profesional para emprendedores y pymes en Chile. Webs que venden y convierten."/>
+  <meta property="og:title" content="DotUp Web Studio | Elevamos tu presencia digital">
+  <meta property="og:description" content="Diseño y desarrollo web profesional para emprendedores y pymes en Chile. Webs modernas, rápidas y que generan resultados reales.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:image" content="https://dotup.netlify.app/favicon.png">
+  <meta property="og:url" content="https://dotup.netlify.app">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://dotup.netlify.app">
+  <meta property="og:locale" content="es_CL">
+  <meta name="twitter:card" content="summary_large_image">  
+  <meta name="twitter:title" content="DotUp Web Studio">
+  <meta name="twitter:description" content="Elevamos tu presencia digital con desarrollo web profesional.">
+  <meta name="twitter:image" content="https://dotup.netlify.app/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark-green: #0f3d1e;     /* Verde oscuro principal, inspirado en tu logo */
+      --darker-green: #082b14;   /* Para gradientes/footer */
+      --white: #ffffff;          /* Texto principal sobre verde */
+      --light-gray: #e2e8f0;     /* Fondo secciones claras */
+      --accent: #f97316;         /* Naranja para botones/energía */
+      --gray: #94a3b8;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light-gray);
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, var(--dark-green) 0%, var(--darker-green) 100%);
+      color: var(--white);
+      padding: 6rem 1rem 5rem;
+      text-align: center;
+    }
+    .logo {
+      font-size: 5rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      margin-bottom: 1rem;
+      line-height: 0.9;
+    }
+    .logo .dot { font-size: 0.6em; vertical-align: middle; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+    h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+    h2 { font-size: 2.5rem; margin: 3rem 0 1.5rem; text-align: center; color: var(--dark-green); }
+    .subtitle { font-size: 1.4rem; opacity: 0.95; max-width: 800px; margin: 0 auto 2rem; }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+    }
+    .btn:hover { background: #ea580c; transform: translateY(-4px); box-shadow: 0 12px 24px rgba(249,115,22,0.4); }
+    section { padding: 5rem 0; }
+    #sobre, footer { background: var(--dark-green); color: var(--white); }
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; text-align: center; }
+    .card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-12px); }
+    .card h3 { color: var(--accent); margin-bottom: 1rem; font-size: 1.6rem; }
+    form {
+      max-width: 650px;
+      margin: 2rem auto;
+      background: white;
+      padding: 3rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 35px rgba(0,0,0,0.12);
+    }
+    label { display: block; margin: 1.2rem 0 0.6rem; font-weight: 600; color: var(--dark-green); }
+    input, textarea {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    button[type="submit"] {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 1.2rem;
+      width: 100%;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-top: 2rem;
+      transition: all 0.3s;
+    }
+    button[type="submit"]:hover { background: #ea580c; }
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .social a { color: var(--white); margin: 0 1.5rem; font-size: 2rem; text-decoration: none; }
+    @media (max-width: 768px) {
+      .logo { font-size: 4rem; }
+      h1 { font-size: 2.8rem; }
+      h2 { font-size: 2rem; }
+    }
+    html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+footer {
+  margin-top: auto;
+}
+  </style>
+</head>
+<body>
+
+  <header>
+  <div class="container">
+    <div class="logo">
+      <span class="dot">.</span>up
+    </div>
+    <h1>DotUp Web Studio</h1>
+    <p class="subtitle">Elevamos tu negocio a la web que merece. Diseño moderno, rápido y que genera resultados reales para emprendedores y pymes chilenas.</p>
+    <a href="#contacto" class="btn">Contáctanos ahora 🚀</a>
+
+    <!-- Aquí va el "Quiénes somos / Nosotros" justo debajo del botón -->
+    <div style="margin-top: 3rem;">
+      <h2 style="color: var(--white);">¿Quiénes somos?</h2>
+      <p style="max-width: 800px; margin: 1.5rem auto 0; text-align: center; font-size: 1.2rem; color: var(--white); opacity: 0.95;">
+        </strong> Somos DotUp, un estudio digital apasionado por hacer que tu presencia online suba de nivel. Creamos sitios web profesionales, funcionales y optimizados para que atraigas más clientes, vendas mejor y destaques en el mundo digital.
+        <br><br>
+        Enfocados en Chile, entendemos perfectamente lo que necesitan las pymes y emprendedores: calidad premium, precios justos, entregas rápidas y soporte cercano.
+      </p>
+    </div>
+  </div>
+</header>
+
+<main>
+  
+  <section id="servicios" style="background: var(--light-gray);">
+    <div class="container">
+      <h2>Nuestros servicios</h2>
+      <div class="services">
+        <div class="card">
+          <h3>Diseño Web Moderno</h3>
+          <p>Sitios atractivos, 100% responsive y con tu identidad de marca al frente.</p>
+        </div>
+        <div class="card">
+          <h3>Desarrollo a Medida</h3>
+          <p>Desde landing pages potentes hasta e-commerce completos con funcionalidades personalizadas.</p>
+        </div>
+        <div class="card">
+          <h3>Optimización y SEO</h3>
+          <p>Webs ultrarrápidas, mobile-first y listas para rankear en Google y atraer tráfico real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <h2>¿Listo para subir de nivel?</h2>
+      <p style="text-align:center; margin-bottom:2.5rem; font-size:1.2rem;">Cuéntanos de tu proyecto y te enviamos una propuesta personalizada en menos de 48 horas.</p>
+
+      <!-- Formspree: Cambia el action por tu endpoint real -->
+      <form action="https://formspree.io/f/mlgwwnjy" method="POST">
+        <input type="hidden" name="_subject" value="Nuevo contacto desde DotUp.cl">
+        <input type="hidden" name="_next" value="https://dotup.cl/gracias.html"> <!-- Opcional: página de gracias -->
+
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="tucorreo@ejemplo.com">
+
+        <label for="telefono">Teléfono / WhatsApp</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="+56 9 xxxx xxxx">
+
+        <label for="mensaje">Cuéntanos sobre tu proyecto</label>
+        <textarea id="mensaje" name="mensaje" rows="7" required placeholder="Ej: Quiero una web para mi tienda, rediseñar mi sitio actual, o algo más..."></textarea>
+
+        <button type="submit">Enviar mensaje</button>
+      </form>
+
+      <div style="text-align:center; margin-top:3.5rem; font-size:1.1rem;">
+        <p>O contáctanos directamente:</p>
+        <p><strong>Email:</strong> contacto.dotup@gmail.com</p>
+        <p><strong>Instagram:</strong> <a href="https://instagram.com/dotup.cl" target="_blank" style="color: var(--accent);">@dotup.cl</a></p>
+        <p><strong>WhatsApp:</strong> +56 9 9592 4177 o al +56 9 4903 4595</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+ <footer>
+  <div class="container">
+    <p>&copy; 2026 DotUp Web Studio. Todos los derechos reservados. Santiago, Chile.</p>
+    <div class="social" style="text-align:center; margin-top: 3px; margin-bottom: 1rem;">
+      
+      <!-- Instagram -->
+      <a href="https://instagram.com/dotup.cl" target="_blank" style="text-decoration: none; display:inline-block; margin: 0 0.75rem;">
+        <img 
+          src="instagram-white-icon.svg" 
+          alt="Instagram DotUp" 
+          style="width: 40px; height: 40px; display:block;"
+        >
+      </a>
+
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@dotup.cl" target="_blank" style="text-decoration: none; display:inline-block; margin: 0 0.75rem;">
+        <img 
+          src="tiktok-white-icon.png" 
+          alt="TikTok DotUp" 
+          style="width: 40px; height: 40px; display:block;"
+        >
+      </a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
