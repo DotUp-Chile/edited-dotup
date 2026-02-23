@@ -13,12 +13,11 @@
       --dark-green: #0f3d1e;
       --darker-green: #082b14;
       --accent: #f97316;
-      --accent-soft: #fb923c;
+      --accent-glow: rgba(249,115,22,0.3);
       --white: #ffffff;
       --light-gray: #f8fafc;
       --gray: #64748b;
       --dark-text: #0f172a;
-      --gold-soft: #c9a96e;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -26,7 +25,6 @@
       background: var(--light-gray);
       color: var(--dark-text);
       line-height: 1.7;
-      overflow-x: hidden;
     }
     header {
       position: fixed;
@@ -36,7 +34,7 @@
       background: rgba(15,61,30,0.92);
       backdrop-filter: blur(12px);
       transition: all 0.3s;
-      border-bottom: 1px solid rgba(201,169,110,0.08);
+      border-bottom: 1px solid rgba(249,115,22,0.08);
     }
     header.scrolled { background: rgba(15,61,30,0.98); box-shadow: 0 4px 25px rgba(0,0,0,0.2); }
     nav {
