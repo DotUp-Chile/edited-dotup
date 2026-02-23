@@ -2,98 +2,190 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="pQ4u39SytYO1eCdzBizNZ85gsy5m8flN3JlDY3aK0Nc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DotUp Web Studio | Elevamos tu presencia digital</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
-  <meta name="description" content="DotUp Web Studio: Diseño y desarrollo web profesional para emprendedores y pymes en Chile. Webs que venden y convierten."/>
-  <meta property="og:title" content="DotUp Web Studio | Elevamos tu presencia digital">
-  <meta property="og:description" content="Diseño y desarrollo web profesional para emprendedores y pymes en Chile. Webs modernas, rápidas y que generan resultados reales.">
-  <meta name="robots" content="index, follow">
-  <meta property="og:image" content="https://dotup.netlify.app/favicon.png">
-  <meta property="og:url" content="https://dotup.netlify.app">
-  <meta property="og:type" content="website">
-  <link rel="canonical" href="https://dotup.netlify.app">
-  <meta property="og:locale" content="es_CL">
-  <meta name="twitter:card" content="summary_large_image">  
-  <meta name="twitter:title" content="DotUp Web Studio">
-  <meta name="twitter:description" content="Elevamos tu presencia digital con desarrollo web profesional.">
-  <meta name="twitter:image" content="https://dotup.netlify.app/favicon.png">
+  <meta name="description" content="DotUp Web Studio: Diseño y desarrollo web profesional para emprendedores y pymes en Chile. Webs modernas que venden y convierten."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --dark-green: #0f3d1e;     /* Verde oscuro principal, inspirado en tu logo */
-      --darker-green: #082b14;   /* Para gradientes/footer */
-      --white: #ffffff;          /* Texto principal sobre verde */
-      --light-gray: #e2e8f0;     /* Fondo secciones claras */
-      --accent: #f97316;         /* Naranja para botones/energía */
-      --gray: #94a3b8;
+      --dark-green: #0f3d1e;
+      --darker-green: #082b14;
+      --accent: #f97316;
+      --accent-glow: rgba(249, 115, 22, 0.3);
+      --white: #ffffff;
+      --light-gray: #f8fafc;
+      --gray: #64748b;
+      --dark-text: #0f172a;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--light-gray);
-      color: #1e293b;
-      line-height: 1.6;
+      color: var(--dark-text);
+      line-height: 1.7;
     }
     header {
-      background: linear-gradient(135deg, var(--dark-green) 0%, var(--darker-green) 100%);
-      color: var(--white);
-      padding: 6rem 1rem 5rem;
-      text-align: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 61, 30, 0.92);
+      backdrop-filter: blur(12px);
+      transition: all 0.3s;
+      border-bottom: 1px solid rgba(249, 115, 22, 0.08);
+    }
+    header.scrolled { background: rgba(15, 61, 30, 0.98); box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
     }
     .logo {
-      font-size: 5rem;
-      font-weight: 800;
-      letter-spacing: -0.05em;
-      margin-bottom: 1rem;
-      line-height: 0.9;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: -0.02em;
     }
-    .logo .dot { font-size: 0.6em; vertical-align: middle; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
-    h1 { font-size: 3.5rem; margin-bottom: 1rem; }
-    h2 { font-size: 2.5rem; margin: 3rem 0 1.5rem; text-align: center; color: var(--dark-green); }
-    .subtitle { font-size: 1.4rem; opacity: 0.95; max-width: 800px; margin: 0 auto 2rem; }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .hero {
+      height: 100vh;
+      min-height: 700px;
+      background: linear-gradient(rgba(15,61,30,0.75), rgba(8,43,20,0.65)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1974') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 5%;
+      color: var(--white);
+    }
+    .hero-content {
+      max-width: 900px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
     .btn {
+      position: relative;
+      overflow: hidden;
       display: inline-block;
       background: var(--accent);
       color: white;
-      padding: 1rem 2.5rem;
+      padding: 1.1rem 3rem;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s;
+      font-size: 1.2rem;
+      transition: all 0.4s;
+      box-shadow: 0 8px 25px var(--accent-glow);
     }
-    .btn:hover { background: #ea580c; transform: translateY(-4px); box-shadow: 0 12px 24px rgba(249,115,22,0.4); }
-    section { padding: 5rem 0; }
-    #sobre, footer { background: var(--dark-green); color: var(--white); }
-    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; text-align: center; }
-    .card {
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px var(--accent-glow);
+    }
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255,255,255,0.25);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.8s ease, height 0.8s ease;
+      pointer-events: none;
+    }
+    .btn:active::after {
+      width: 400%;
+      height: 400%;
+    }
+    section {
+      padding: 8rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      text-align: center;
+      margin-bottom: 4rem;
+      color: var(--dark-green);
+    }
+    .services-grid, .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.5rem;
+    }
+    .card, .portfolio-card {
       background: white;
-      padding: 2.5rem;
       border-radius: 16px;
-      box-shadow: 0 6px 25px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
-    .card:hover { transform: translateY(-12px); }
-    .card h3 { color: var(--accent); margin-bottom: 1rem; font-size: 1.6rem; }
+    .card:hover, .portfolio-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(249,115,22,0.15);
+    }
+    .card img, .portfolio-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    .card img.loaded, .portfolio-card img.loaded {
+      opacity: 1;
+    }
+    .card-content, .portfolio-content {
+      padding: 2rem;
+      text-align: center;
+    }
+    .card h3, .portfolio-card h3 {
+      color: var(--accent);
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+    }
     form {
-      max-width: 650px;
-      margin: 2rem auto;
+      max-width: 700px;
+      margin: 0 auto;
       background: white;
-      padding: 3rem;
-      border-radius: 16px;
-      box-shadow: 0 6px 35px rgba(0,0,0,0.12);
+      padding: 3.5rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
     }
-    label { display: block; margin: 1.2rem 0 0.6rem; font-weight: 600; color: var(--dark-green); }
     input, textarea {
       width: 100%;
-      padding: 1rem;
-      border: 1px solid #cbd5e1;
+      padding: 1.2rem;
+      margin: 1rem 0;
+      border: 1px solid #e2e8f0;
       border-radius: 10px;
       font-size: 1rem;
     }
@@ -101,215 +193,156 @@
       background: var(--accent);
       color: white;
       border: none;
-      padding: 1.2rem;
+      padding: 1.3rem;
       width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
       font-size: 1.2rem;
       cursor: pointer;
-      margin-top: 2rem;
       transition: all 0.3s;
     }
-    button[type="submit"]:hover { background: #ea580c; }
+    button[type="submit"]:hover { background: #ea580c; transform: translateY(-3px); }
     footer {
+      background: var(--dark-green);
+      color: var(--white);
+      padding: 4rem 5% 2rem;
       text-align: center;
-      padding: 3rem 1rem;
     }
-    .social a { color: var(--white); margin: 0 1.5rem; font-size: 2rem; text-decoration: none; }
+    .social {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .social a img {
+      width: 36px;
+      height: 36px;
+      transition: transform 0.3s;
+    }
+    .social a:hover img { transform: scale(1.2); }
     @media (max-width: 768px) {
-      .logo { font-size: 4rem; }
-      h1 { font-size: 2.8rem; }
-      h2 { font-size: 2rem; }
-    }
-    html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-main {
-  flex: 1;
-}
-footer {
-  margin-top: auto;
-}
-.portfolio-card img {
-      opacity: 0;
-      transition: opacity 0.6s ease-in-out;
-    }
-
-.portfolio-card img.loaded {
-      opacity: 1;
+      .hero h1 { font-size: 3rem; }
+      h2 { font-size: 2.5rem; }
+      nav { padding: 1rem 5%; }
+      .nav-links { gap: 1.5rem; font-size: 0.95rem; }
     }
   </style>
 </head>
 <body>
 
   <header>
-  <div class="container">
-    <div class="logo">
-      <span class="dot">.</span>up
-    </div>
-    <h1>DotUp Web Studio</h1>
-    <p class="subtitle">Elevamos tu negocio a la web que merece. Diseño moderno, rápido y que genera resultados reales para emprendedores y pymes chilenas.</p>
-    <a href="#contacto" class="btn">Contáctanos ahora 🚀</a>
+    <nav>
+      <div class="logo"><span class="dot">.</span>up</div>
+      <div style="display:flex; gap:2.5rem;">
+        <a href="#servicios">Servicios</a>
+        <a href="#portafolio">Portafolio</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </header>
 
-    <!-- Aquí va el "Quiénes somos / Nosotros" justo debajo del botón -->
-    <div style="margin-top: 3rem;">
-      <h2 style="color: var(--white);">¿Quiénes somos?</h2>
-      <p style="max-width: 800px; margin: 1.5rem auto 0; text-align: center; font-size: 1.2rem; color: var(--white); opacity: 0.95;">
-        </strong> Somos DotUp, un estudio digital apasionado por hacer que tu presencia online suba de nivel. Creamos sitios web profesionales, funcionales y optimizados para que atraigas más clientes, vendas mejor y destaques en el mundo digital.
-        <br><br>
-        Enfocados en Chile, entendemos perfectamente lo que necesitan las pymes y emprendedores: calidad premium, precios justos, entregas rápidas y soporte cercano.
-      </p>
-    </div>
-  </div>
-</header>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Elevamos tu presencia digital</h1>
+        <p>Diseño y desarrollo web profesional para emprendedores y pymes chilenas. Webs que venden, convierten y destacan.</p>
+        <a href="#contacto" class="btn">Contáctanos ahora</a>
+      </div>
+    </section>
 
-<main>
-  
-  <section id="servicios" style="background: var(--light-gray);">
-    <div class="container">
-      <h2>Nuestros servicios</h2>
-      <div class="services">
+    <section id="servicios">
+      <h2>Nuestros Servicios</h2>
+      <div class="services-grid">
         <div class="card">
-          <h3>Diseño Web Moderno</h3>
-          <p>Sitios atractivos, 100% responsive y con tu identidad de marca al frente.</p>
-        </div>
-        <div class="card">
-          <h3>Desarrollo a Medida</h3>
-          <p>Desde landing pages potentes hasta e-commerce completos con funcionalidades personalizadas.</p>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800" alt="Diseño Web" onload="this.classList.add('loaded')">
+          <div class="card-content">
+            <h3>Diseño Web Moderno</h3>
+            <p>Sitios atractivos, 100% responsive y con tu identidad de marca al frente.</p>
+          </div>
         </div>
         <div class="card">
-          <h3>Optimización y SEO</h3>
-          <p>Webs ultrarrápidas, mobile-first y listas para rankear en Google y atraer tráfico real.</p>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800" alt="Desarrollo" onload="this.classList.add('loaded')">
+          <div class="card-content">
+            <h3>Desarrollo a Medida</h3>
+            <p>Desde landing pages potentes hasta e-commerce completos con funcionalidades personalizadas.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800" alt="SEO" onload="this.classList.add('loaded')">
+          <div class="card-content">
+            <h3>Optimización y SEO</h3>
+            <p>Webs ultrarrápidas, mobile-first y listas para rankear en Google y atraer tráfico real.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- Sección Nuestros Trabajos / Portafolio -->
-<section id="portafolio" style="padding: 5rem 0; background: var(--light-gray);">
-  <div class="container">
-    <h2 style="text-align: center; margin-bottom: 3rem; color: var(--dark-green); font-size: 2.8rem;">
-      Nuestros Trabajos
-    </h2>
+    </section>
 
-    <div class="portfolio-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
-      
-      <!-- Proyecto 1: Sastrería Ibarra (o el que ya tengan) -->
-      <div class="portfolio-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.1); transition: transform 0.3s;">
-        <img loading="lazy"
-          src="https://i.postimg.cc/9FyyQg5j/Captura-de-pantalla-2026-02-23-180252.png" 
-          alt="Sastrería Ibarra - Vista Previa" 
-          style="width: 100%; height: 220px; object-fit: cover;"
-          onload="this.classList.add('loaded')"
-        >
-        <div style="padding: 1.8rem; text-align: center;">
-          <h3 style="color: var(--black); margin-bottom: 0.8rem;">Proyecto Sastrería </h3>
-          <p style="color: var(--grey); margin-bottom: 1.2rem;">Rediseño completo de sitio web para sastrería tradicional en Santiago. Elegancia, reservas y galería de trajes a medida.</p>
-          <a 
-            href="https://dotup-chile.github.io/Sastreria_isi/" 
-            target="_blank" 
-            class="btn" 
-            style="display: inline-block; padding: 0.8rem 1.8rem; font-size: 1rem;"
-          >
-            Ver Proyecto →
-          </a>
+    <section id="portafolio">
+      <h2>Nuestros Trabajos</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <img loading="lazy" src="https://i.postimg.cc/9FyyQg5j/Captura-de-pantalla-2026-02-23-180252.png" alt="Sastrería Ibarra" onload="this.classList.add('loaded')">
+          <div class="portfolio-content">
+            <h3>Sastrería Ibarra</h3>
+            <p>Rediseño completo con elegancia y funcionalidad para sastrería tradicional en Santiago.</p>
+            <a href="https://dotup-chile.github.io/Sastreria_isi/" target="_blank" class="btn">Ver Proyecto</a>
+          </div>
         </div>
+        <!-- Agrega más tarjetas aquí cuando tengas nuevos proyectos -->
       </div>
+    </section>
 
-      <!-- Proyecto 2: Espacio para el próximo -->
-      <div class="portfolio-card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 6px 25px rgba(0,0,0,0.1); transition: transform 0.3s;">
-        <img loading="lazy"
-          src="https://www.oicp-protocolo.com/wp-content/uploads/2022/10/Proximamente.png" 
-          alt="Próximo proyecto" 
-          style="width: 100%; height: 220px; object-fit: cover;"
-          onload="this.classList.add('loaded')"
-        >
-        <div style="padding: 1.8rem; text-align: center;">
-          <h3 style="color: var(--black); margin-bottom: 0.8rem;">Próximo Proyecto</h3>
-          <p style="color: var(--grey); margin-bottom: 1.2rem;">Aquí estará el siguiente trabajo terminado. </p>
-          <p> Y puede ser el tuyo. </p>
-        </div>
-      </div>
-
-      <!-- Puedes copiar y pegar esta tarjeta cuantas veces quieras para agregar más proyectos -->
-      <!-- <div class="portfolio-card"> ... </div> -->
-
-    </div>
-
-    <!-- Texto motivador al final -->
-    <p style="text-align: center; margin-top: 4rem; font-size: 1.2rem; color: var(--black);">
-      Cada proyecto es único y hecho a medida. ¿Quieres que el tuyo sea el próximo? 
-      <a href="#contacto" style="color: var(--accent); font-weight: 600;">Contáctanos</a>
-    </p>
-  </div>
-</section>
-
-  <section id="contacto">
-    <div class="container">
+    <section id="contacto">
       <h2>¿Listo para subir de nivel?</h2>
-      <p style="text-align:center; margin-bottom:2.5rem; font-size:1.2rem;">Cuéntanos de tu proyecto y te enviamos una propuesta personalizada en menos de 48 horas.</p>
-
-      <!-- Formspree: Cambia el action por tu endpoint real -->
+      <p style="text-align:center; margin-bottom:2.5rem; font-size:1.2rem;">Cuéntanos de tu proyecto y te enviamos propuesta personalizada en menos de 48 horas.</p>
       <form action="https://formspree.io/f/mlgwwnjy" method="POST">
-        <input type="hidden" name="_subject" value="Nuevo contacto desde DotUp.cl">
-        <input type="hidden" name="_next" value="https://dotup.cl/gracias.html"> <!-- Opcional: página de gracias -->
-
+        <input type="hidden" name="_subject" value="Nuevo contacto desde DotUp">
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
-
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required placeholder="tucorreo@ejemplo.com">
-
         <label for="telefono">Teléfono / WhatsApp</label>
         <input type="tel" id="telefono" name="telefono" placeholder="+56 9 xxxx xxxx">
-
         <label for="mensaje">Cuéntanos sobre tu proyecto</label>
-        <textarea id="mensaje" name="mensaje" rows="7" required placeholder="Ej: Quiero una web para mi tienda, rediseñar mi sitio actual, o algo más..."></textarea>
-
-        <button type="submit">Enviar mensaje</button>
+        <textarea id="mensaje" name="mensaje" rows="6" required placeholder="Ej: Quiero una web para mi negocio..."></textarea>
+        <button type="submit">Enviar Mensaje</button>
       </form>
-
-      <div style="text-align:center; margin-top:3.5rem; font-size:1.1rem;">
+      <div style="text-align:center; margin-top:3rem;">
         <p>O contáctanos directamente:</p>
         <p><strong>Email:</strong> contacto.dotup@gmail.com</p>
-        <p><strong>Instagram:</strong> <a href="https://instagram.com/dotup.cl" target="_blank" style="color: var(--accent);">@dotup.cl</a></p>
-        <p><strong>WhatsApp:</strong> +56 9 9592 4177 o al +56 9 4903 4595</p>
+        <p><strong>Instagram:</strong> <a href="https://instagram.com/dotup.cl">@dotup.cl</a></p>
+        <p><strong>WhatsApp:</strong> +56 9 9592 4177 / +56 9 4903 4595</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="text-align:center; padding: 3rem 0;">
+      <p>&copy; 2026 DotUp Web Studio. Todos los derechos reservados. Santiago, Chile.</p>
+      <div class="social" style="margin-top:1.5rem; display:flex; justify-content:center; gap:2rem;">
+        <a href="https://instagram.com/dotup.cl" target="_blank">
+          <img src="instagram-white-icon.svg" alt="Instagram" style="width:36px; height:36px;">
+        </a>
+        <a href="https://www.tiktok.com/@dotup.cl" target="_blank">
+          <img src="tiktok-white-icon.png" alt="TikTok" style="width:36px; height:36px;">
+        </a>
       </div>
     </div>
-  </section>
+  </footer>
 
-</main>
+  <script>
+    // Fade-in al scroll
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+    sections.forEach(section => observer.observe(section));
 
- <footer>
-  <div class="container">
-    <p>&copy; 2026 DotUp Web Studio. Todos los derechos reservados. Santiago, Chile.</p>
-    <div class="social" style="text-align:center; margin-top: 3px; margin-bottom: 1rem;">
-      
-      <!-- Instagram -->
-      <a href="https://instagram.com/dotup.cl" target="_blank" style="text-decoration: none; display:inline-block; margin: 0 0.75rem;">
-        <img 
-          src="instagram-white-icon.svg" 
-          alt="Instagram DotUp" 
-          style="width: 40px; height: 40px; display:block;"
-        >
-      </a>
-
-      <!-- TikTok -->
-      <a href="https://www.tiktok.com/@dotup.cl" target="_blank" style="text-decoration: none; display:inline-block; margin: 0 0.75rem;">
-        <img 
-          src="tiktok-white-icon.png" 
-          alt="TikTok DotUp" 
-          style="width: 40px; height: 40px; display:block;"
-        >
-      </a>
-    </div>
-  </div>
-</footer>
-
+    // Header scrolled
+    window.addEventListener('scroll', () => {
+      document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
 </body>
 </html>
