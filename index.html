@@ -1,57 +1,435 @@
-<section id="proceso" style="background: white; max-width: 100%; border-top: 1px solid #eee;">
-      <div style="max-width: 1200px; margin: 0 auto; padding: 4rem 5%;">
-        <h2>Tu camino al éxito digital</h2>
-        <div class="grid">
-          <div class="card" style="box-shadow: none; border: 1px solid #f1f5f9;">
-            <div style="font-size: 2rem; color: var(--accent); font-weight: bold; margin-bottom: 1rem;">01</div>
-            <h3>Café y Estrategia</h3>
-            <p>Nos cuentas tu idea y definimos los objetivos comerciales de tu nueva web.</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DotUp Web Studio | Elevamos tu presencia digital</title>
+  
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="description" content="DotUp Web Studio: Diseño y desarrollo web profesional para pymes en Chile. Webs modernas, rápidas y autoadministrables."/>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --dark-green: #0f3d1e;
+      --darker-green: #082b14;
+      --accent: #f97316;
+      --accent-hover: #ea580c;
+      --accent-glow: rgba(249,115,22,0.3);
+      --white: #ffffff;
+      --light-gray: #f8fafc;
+      --text-gray: #64748b;
+      --dark-text: #0f172a;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light-gray);
+      color: var(--dark-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* --- Header & Nav --- */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: transparent;
+      transition: all 0.4s;
+      padding: 1rem 0;
+    }
+
+    header.scrolled {
+      background: rgba(15, 61, 30, 0.98);
+      padding: 0.5rem 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* --- Hero Section --- */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(15, 61, 30, 0.8), rgba(8, 43, 20, 0.7)), 
+                  url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2015') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      padding: 0 5%;
+    }
+
+    .hero-content { max-width: 800px; }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+
+    /* --- Buttons --- */
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px var(--accent-glow);
+    }
+
+    /* --- Sections --- */
+    section {
+      padding: 6rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--dark-green);
+    }
+
+    /* --- Grid & Cards --- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover { transform: translateY(-10px); }
+
+    .card h3 { color: var(--dark-green); margin-bottom: 1rem; }
+
+    /* --- Portfolio --- */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .portfolio-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 61, 30, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: 0.4s;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+    .portfolio-item:hover img { transform: scale(1.1); }
+
+    /* --- Stats Section --- */
+    .stats-container {
+        background: var(--dark-green);
+        color: white;
+        padding: 4rem 5%;
+        max-width: 100%;
+        margin-top: 4rem;
+    }
+
+    .counter {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--accent);
+        display: block;
+    }
+
+    /* --- Form --- */
+    .contact-container {
+      background: var(--dark-green);
+      color: white;
+      padding: 4rem;
+      border-radius: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-container h2 { color: white; }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: none;
+      font-family: inherit;
+    }
+
+    /* --- Footer --- */
+    footer {
+      background: var(--darker-green);
+      color: white;
+      padding: 4rem 5% 2rem;
+      text-align: center;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .social-links a { color: white; text-decoration: none; font-weight: bold; }
+    .social-links a:hover { color: var(--accent); }
+
+    /* --- Mobile Responsive --- */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      h2 { font-size: 2rem; }
+      .contact-container { padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header id="header">
+    <nav>
+      <a href="#" class="logo">Dot<span>.</span>Up</a>
+      <ul class="nav-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#portafolio">Portafolio</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="https://wa.me/56995924177" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">WhatsApp</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Diseñamos el futuro de tu negocio</h1>
+        <p>Creamos sitios web autoadministrables, rápidos y optimizados para Google. Elevamos pymes chilenas al siguiente nivel digital.</p>
+        <a href="#contacto" class="btn">Empezar mi proyecto</a>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <h2>Nuestros Servicios</h2>
+      <div class="grid">
+        <div class="card">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🎨</div>
+          <h3>Diseño Web Pro</h3>
+          <p>Webs modernas que se adaptan a todos los dispositivos (celulares, tablets y PC).</p>
+        </div>
+        <div class="card">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+          <h3>SEO y Velocidad</h3>
+          <p>No solo nos vemos bien, cargamos rápido para que tus clientes no se vayan.</p>
+        </div>
+        <div class="card">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🛠️</div>
+          <h3>Soporte Mensual</h3>
+          <p>Mantenimiento preventivo, seguridad y actualizaciones incluidas para tu tranquilidad.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="proceso" style="background: white; max-width: 100%; border-top: 1px solid #eee;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 2rem 5%;">
+          <h2>Tu camino al éxito digital</h2>
+          <div class="grid">
+            <div class="card" style="box-shadow: none; border: 1px solid #f1f5f9;">
+              <div style="font-size: 1.5rem; color: var(--accent); font-weight: bold; margin-bottom: 1rem;">01. ESTRATEGIA</div>
+              <h3>Café y Planificación</h3>
+              <p>Nos cuentas tu idea y definimos los objetivos comerciales de tu nueva web.</p>
+            </div>
+            <div class="card" style="box-shadow: none; border: 1px solid #f1f5f9;">
+              <div style="font-size: 1.5rem; color: var(--accent); font-weight: bold; margin-bottom: 1rem;">02. DISEÑO</div>
+              <h3>Magia Creativa</h3>
+              <p>Construimos una interfaz moderna, rápida y optimizada para convertir visitas en ventas.</p>
+            </div>
+            <div class="card" style="box-shadow: none; border: 1px solid #f1f5f9;">
+              <div style="font-size: 1.5rem; color: var(--accent); font-weight: bold; margin-bottom: 1rem;">03. ENTREGA</div>
+              <h3>¡Despegue!</h3>
+              <p>Lanzamos tu sitio y te capacitamos para que seas dueño total de tu contenido.</p>
+            </div>
           </div>
-          <div class="card" style="box-shadow: none; border: 1px solid #f1f5f9;">
-            <div style="font-size: 2rem; color: var(--accent); font-weight: bold; margin-bottom: 1rem;">02</div>
-            <h3>Diseño y Magia</h3>
-            <p>Construimos una interfaz moderna, rápida y optimizada para convertir visitas en ventas.</p>
+        </div>
+    </section>
+
+    <section id="portafolio" style="background: #eceff1; max-width: 100%;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <h2>Proyectos Exitosos</h2>
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <img src="https://i.postimg.cc/9FyyQg5j/Captura-de-pantalla-2026-02-23-180252.png" alt="Sastrería Ibarra">
+            <div class="portfolio-overlay">
+              <h3>Sastrería Ibarra</h3>
+              <p>Rediseño Corporativo</p>
+              <a href="https://dotup-chile.github.io/Sastreria_isi/" target="_blank" class="btn" style="margin-top:10px;">Ver Web</a>
+            </div>
           </div>
-          <div class="card" style="box-shadow: none; border: 1px solid #f1f5f9;">
-            <div style="font-size: 2rem; color: var(--accent); font-weight: bold; margin-bottom: 1rem;">03</div>
-            <h3>¡Despegue!</h3>
-            <p>Lanzamos tu sitio al mundo y te entregamos las llaves (capacitación) para que seas dueño de tu contenido.</p>
+          <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" alt="Próximo Proyecto">
+            <div class="portfolio-overlay">
+              <h3>Tu Marca Aquí</h3>
+              <p>Diseño Personalizado</p>
+              <a href="#contacto" class="btn" style="margin-top:10px;">Consultar</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="stats" style="background: var(--dark-green); color: white; max-width: 100%; text-align: center;">
-      <div class="grid" style="max-width: 1200px; margin: 0 auto;">
-        <div>
-          <h2 style="color: var(--accent); font-size: 3.5rem; margin-bottom: 0;" class="counter" data-target="15">0</h2>
-          <p>Proyectos Lanzados</p>
+    <section id="stats" class="stats-container">
+        <div class="grid" style="max-width: 1200px; margin: 0 auto; text-align: center;">
+          <div>
+            <span class="counter" data-target="15">0</span>
+            <p>Proyectos Lanzados</p>
+          </div>
+          <div>
+            <span class="counter" data-target="100">0</span>
+            <p>% Autoadministrables</p>
+          </div>
+          <div>
+            <span class="counter" data-target="24">0</span>
+            <p>Horas Soporte Record</p>
+          </div>
         </div>
-        <div>
-          <h2 style="color: var(--accent); font-size: 3.5rem; margin-bottom: 0;" class="counter" data-target="100">0</h2>
-          <p>% Autoadministrables</p>
-        </div>
-        <div>
-          <h2 style="color: var(--accent); font-size: 3.5rem; margin-bottom: 0;" class="counter" data-target="24">0</h2>
-          <p>Horas Soporte Record</p>
-        </div>
-      </div>
     </section>
 
-    <script>
+    <section id="contacto">
+      <div class="contact-container">
+        <h2>¿Hablamos?</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">Déjanos tus datos y te contactaremos en menos de 24 horas.</p>
+        <form action="https://formspree.io/f/mlgwwnjy" method="POST">
+          <input type="text" name="name" placeholder="Tu Nombre" required>
+          <input type="email" name="email" placeholder="Tu Email" required>
+          <input type="tel" name="phone" placeholder="WhatsApp (Ej: +569...)" required>
+          <textarea name="message" rows="5" placeholder="Cuéntanos de tu idea..." required></textarea>
+          <button type="submit" class="btn" style="width: 100%;">Enviar Mensaje</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logo">Dot<span>.</span>Up</div>
+    <p style="margin-top: 1rem; opacity: 0.7;">&copy; 2026 DotUp Web Studio - Santiago, Chile</p>
+    <div class="social-links">
+      <a href="https://instagram.com/dotup.cl" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@dotup.cl" target="_blank">TikTok</a>
+      <a href="mailto:contacto.dotup@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <script>
+    // 1. Cambio de color del header al hacer scroll
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // 2. Animación de los contadores numéricos
     const counters = document.querySelectorAll('.counter');
-    const speed = 200;
+    const speed = 150;
 
     const startCounters = () => {
       counters.forEach(counter => {
         const updateCount = () => {
           const target = +counter.getAttribute('data-target');
-          const count = +counter.innerText;
+          const count = +counter.innerText.replace(/[^0-9]/g, '');
           const inc = target / speed;
 
           if (count < target) {
             counter.innerText = Math.ceil(count + inc);
-            setTimeout(updateCount, 1);
+            setTimeout(updateCount, 20);
           } else {
             counter.innerText = target + (target === 100 ? "%" : "+");
           }
@@ -60,13 +438,27 @@
       });
     };
 
-    // Iniciar contadores cuando la sección sea visible
-    const statsSection = document.querySelector('#stats');
-    const statsObserver = new IntersectionObserver((entries) => {
-      if(entries[0].isIntersecting) {
-        startCounters();
-        statsObserver.unobserve(statsSection);
-      }
-    }, { threshold: 0.5 });
-    statsObserver.observe(statsSection);
-    </script>
+    // 3. Observer para activar animaciones al hacer scroll
+    const observerOptions = { threshold: 0.2 };
+    
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (entry.target.id === 'stats') {
+            startCounters();
+          }
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      section.style.opacity = "0";
+      section.style.transform = "translateY(30px)";
+      section.style.transition = "0.8s all ease-out";
+      sectionObserver.observe(section);
+    });
+  </script>
+</body>
+</html>
