@@ -35,7 +35,7 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* --- Header Responsivo --- */
+    /* --- Header --- */
     header {
       position: fixed;
       width: 100%;
@@ -46,7 +46,7 @@
     }
 
     header.scrolled {
-      background: rgba(8, 43, 20, 0.9);
+      background: rgba(8, 43, 20, 0.95);
       backdrop-filter: blur(15px);
       padding: 0.6rem 0;
       border-bottom: 1px solid var(--glass-border);
@@ -63,28 +63,25 @@
 
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.6rem; /* Ajustado para móvil */
+      font-size: 1.6rem;
       color: var(--white);
       text-decoration: none;
       font-weight: 900;
-      letter-spacing: -1px;
     }
 
     .logo span { color: var(--accent); }
 
     .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-    
     .nav-links a {
       color: var(--white);
       text-decoration: none;
       font-weight: 500;
       font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
       opacity: 0.7;
     }
 
-    /* --- Hero Section --- */
+    /* --- Hero --- */
     .hero {
       min-height: 100vh;
       background: linear-gradient(-45deg, #0f3d1e, #082b14, #041208, #1a4d2e);
@@ -94,32 +91,20 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 80px 5% 40px;
+      padding: 100px 5% 60px;
     }
-
-    .hero-content { z-index: 1; max-width: 900px; }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 12vw, 5.5rem); /* Fluido */
+      font-size: clamp(2.5rem, 10vw, 5rem);
       font-weight: 900;
       line-height: 1.1;
       margin-bottom: 1.5rem;
-      background: linear-gradient(to bottom, #fff 0%, #aaa 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero p {
-      font-size: clamp(0.9rem, 4vw, 1.2rem);
-      opacity: 0.8;
-      margin-bottom: 2.5rem;
-      letter-spacing: 1px;
+      color: #fff;
     }
 
     /* --- Botones --- */
     .btn {
-      position: relative;
       display: inline-block;
       background: var(--accent);
       color: white;
@@ -127,25 +112,26 @@
       border-radius: 4px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.9rem;
-      overflow: hidden;
       transition: 0.4s;
       border: none;
+      cursor: pointer;
     }
 
     /* --- Secciones --- */
-    section { padding: 5rem 5%; max-width: 1300px; margin: 0 auto; }
+    section { padding: 4rem 5%; max-width: 1300px; margin: 0 auto; }
 
     h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 8vw, 3.5rem);
+      font-size: clamp(2.2rem, 7vw, 3.5rem);
       margin-bottom: 3rem;
+      text-align: center; /* Títulos Centrados */
+      width: 100%;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
     .card {
@@ -154,31 +140,62 @@
       border-radius: 15px;
       border: 1px solid var(--glass-border);
       backdrop-filter: blur(10px);
+      text-align: center; /* Contenido tarjetas centrado */
       transition: 0.4s;
     }
 
-    /* --- Portafolio --- */
+    /* --- Metodología (Idea 1) --- */
+    .metodologia-item {
+        border-top: 1px solid var(--accent);
+        padding-top: 1.5rem;
+        text-align: center;
+    }
+
+    /* --- Contadores (Idea 2) --- */
+    .stats-section {
+        background: rgba(15, 61, 30, 0.3);
+        margin: 4rem 0;
+        text-align: center;
+    }
+    .counter {
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--accent);
+        display: block;
+    }
+
+    /* --- Portafolio Centrado --- */
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      justify-content: center; /* Centra las fotos si hay pocas */
     }
 
     .portfolio-item {
       position: relative;
       border-radius: 20px;
       overflow: hidden;
-      height: 350px; /* Reducido para móvil */
+      height: 400px;
+      max-width: 500px;
+      margin: 0 auto; /* Centra la foto en su columna */
+      width: 100%;
+    }
+
+    .portfolio-item img {
+        width: 100%; height: 100%; object-fit: cover;
     }
 
     .portfolio-overlay {
       position: absolute;
       inset: 0;
       padding: 2rem;
-      background: linear-gradient(to top, rgba(4,18,8,0.95), transparent);
+      background: rgba(4, 18, 8, 0.85);
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       opacity: 0;
       transition: 0.4s;
     }
@@ -196,14 +213,6 @@
         border: 1px solid var(--glass-border);
     }
 
-    @media (min-width: 900px) {
-        .contact-wrapper { grid-template-columns: 1fr 1fr; padding: 4rem; }
-        .logo { font-size: 2.2rem; }
-        .nav-links a { font-size: 0.9rem; }
-        section { padding: 8rem 5%; }
-        .portfolio-item { height: 450px; }
-    }
-
     form input, form textarea {
       width: 100%;
       padding: 1rem;
@@ -212,11 +221,19 @@
       border: 1px solid var(--glass-border);
       color: white;
       border-radius: 6px;
-      font-family: inherit;
     }
 
-    /* --- Footer --- */
-    footer { padding: 3rem 5%; border-top: 1px solid var(--glass-border); text-align: center; }
+    /* --- Media Queries --- */
+    @media (min-width: 900px) {
+        .contact-wrapper { grid-template-columns: 1fr 1fr; padding: 4rem; }
+        .logo { font-size: 2.2rem; }
+        section { padding: 8rem 5%; }
+        .nav-links a { font-size: 0.9rem; }
+    }
+
+    @media (max-width: 600px) {
+        .nav-links { display: none; }
+    }
 
     /* --- Animación --- */
     .reveal {
@@ -225,119 +242,10 @@
       transition: all 0.8s ease-out;
     }
     .reveal.active { opacity: 1; transform: translateY(0); }
-
-    /* Esconder nav links en móvil muy pequeño si chocan */
-    @media (max-width: 480px) {
-        .nav-links { display: none; }
-    }
   </style>
 </head>
 <body>
 
   <header id="header">
     <nav>
-      <a href="#" class="logo">DOT<span>.</span>UP</a>
-      <ul class="nav-links">
-        <li><a href="#servicios">Labs</a></li>
-        <li><a href="#portafolio">Work</a></li>
-      </ul>
-      <a href="https://wa.me/56995924177" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.75rem;">WHATSAPP</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Elevamos tu ADN digital<span>.</span></h1>
-        <p>ESTUDIO BOUTIQUE DE DISEÑO & DESARROLLO WEB EN CHILE.</p>
-        <a href="#contacto" class="btn">INICIAR PROYECTO</a>
-      </div>
-    </section>
-
-    <section id="servicios" class="reveal">
-      <h2 style="text-align: left;">Expertise<span>.</span></h2>
-      <div class="grid">
-        <div class="card">
-          <span style="font-size: 2rem;">🚀</span>
-          <h3 style="margin: 1rem 0;">Performance</h3>
-          <p style="font-size: 0.9rem; opacity: 0.7;">Webs ultra rápidas. La velocidad no es lujo, es conversión pura.</p>
-        </div>
-        <div class="card">
-          <span style="font-size: 2rem;">💎</span>
-          <h3 style="margin: 1rem 0;">Boutique Design</h3>
-          <p style="font-size: 0.9rem; opacity: 0.7;">Sin plantillas. Diseño estratégico para marcas que buscan exclusividad.</p>
-        </div>
-        <div class="card">
-          <span style="font-size: 2rem;">📈</span>
-          <h3 style="margin: 1rem 0;">SEO Core</h3>
-          <p style="font-size: 0.9rem; opacity: 0.7;">Estructura optimizada para escalar posiciones en Google.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="portafolio" class="reveal">
-      <h2>Work<span>.</span></h2>
-      <div class="portfolio-grid">
-        <div class="portfolio-item">
-          <img src="https://i.postimg.cc/9FyyQg5j/Captura-de-pantalla-2026-02-23-180252.png" alt="Sastrería Ibarra">
-          <div class="portfolio-overlay">
-            <h3>Sastrería Ibarra</h3>
-            <p style="font-size: 0.8rem; margin-bottom: 1rem;">E-commerce Luxury</p>
-            <a href="https://dotup-chile.github.io/Sastreria_isi/" class="btn" style="padding: 0.5rem 1rem; font-size: 0.7rem;">VER SITIO</a>
-          </div>
-        </div>
-        <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800" alt="Work">
-            <div class="portfolio-overlay">
-              <h3>Próximo Nivel</h3>
-              <p style="font-size: 0.8rem; margin-bottom: 1rem;">Tech Solutions</p>
-              <span class="btn" style="padding: 0.5rem 1rem; font-size: 0.7rem; background: rgba(255,255,255,0.1);">COMING SOON</span>
-            </div>
-          </div>
-      </div>
-    </section>
-
-    <section id="contacto" class="reveal">
-        <div class="contact-wrapper">
-            <div>
-                <h2>Hablemos<span>.</span></h2>
-                <p style="opacity:0.6; margin-bottom: 2rem;">Lleva tu marca al siguiente nivel.</p>
-                <p style="font-size: 0.9rem;"><strong>Email:</strong> contacto.dotup@gmail.com</p>
-                <p style="font-size: 0.9rem;"><strong>Santiago, Chile</strong></p>
-            </div>
-            <form action="https://formspree.io/f/mlgwwnjy" method="POST">
-                <input type="text" name="name" placeholder="Tu nombre" required>
-                <input type="email" name="email" placeholder="Tu email" required>
-                <textarea name="message" rows="4" placeholder="¿Cómo te ayudamos?" required></textarea>
-                <button type="submit" class="btn" style="width: 100%;">ENVIAR MENSAJE</button>
-            </form>
-        </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="logo" style="font-size: 1.2rem;">DOT<span>.</span>UP</div>
-    <p style="opacity: 0.4; font-size: 0.7rem; margin-top: 1rem;">&copy; 2026 DOTUP STUDIO. CHILE.</p>
-  </footer>
-
-  <script>
-    window.addEventListener('scroll', () => {
-      const header = document.getElementById('header');
-      header.classList.toggle('scrolled', window.scrollY > 30);
-    });
-
-    const reveal = () => {
-      const reveals = document.querySelectorAll('.reveal');
-      reveals.forEach(el => {
-        const windowHeight = window.innerHeight;
-        const elementTop = el.getBoundingClientRect().top;
-        if (elementTop < windowHeight - 100) {
-          el.classList.add('active');
-        }
-      });
-    }
-    window.addEventListener('scroll', reveal);
-    reveal();
-  </script>
-</body>
-</html>
+      <a
