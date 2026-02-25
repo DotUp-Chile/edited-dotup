@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DotUp Web Studio | Elevamos tu presencia digital</title>
+  <title>DotUp Web Studio | Elevamos tu ADN digital</title>
   
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -23,33 +23,32 @@
     
     body {
       font-family: 'Inter', sans-serif;
-      background: #041208; /* Fondo ultra oscuro para resaltar el verde */
+      background: #041208;
       color: var(--white);
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* --- Animaciones de Fondo --- */
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    /* --- Header Premium --- */
+    /* --- Header Responsivo --- */
     header {
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      padding: 1.5rem 0;
+      transition: all 0.5s ease;
+      padding: 1rem 0;
     }
 
     header.scrolled {
-      background: rgba(8, 43, 20, 0.8);
+      background: rgba(8, 43, 20, 0.9);
       backdrop-filter: blur(15px);
-      padding: 0.8rem 0;
+      padding: 0.6rem 0;
       border-bottom: 1px solid var(--glass-border);
     }
 
@@ -64,7 +63,7 @@
 
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-size: 1.6rem; /* Ajustado para móvil */
       color: var(--white);
       text-decoration: none;
       font-weight: 900;
@@ -73,22 +72,21 @@
 
     .logo span { color: var(--accent); }
 
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    
     .nav-links a {
       color: var(--white);
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: 0.3s;
-      opacity: 0.8;
+      opacity: 0.7;
     }
-    .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-    /* --- Hero Section Impactante --- */
+    /* --- Hero Section --- */
     .hero {
-      height: 100vh;
+      min-height: 100vh;
       background: linear-gradient(-45deg, #0f3d1e, #082b14, #041208, #1a4d2e);
       background-size: 400% 400%;
       animation: gradientBG 15s ease infinite;
@@ -96,163 +94,140 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      position: relative;
+      padding: 80px 5% 40px;
     }
 
-    .hero::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
-        opacity: 0.1;
-    }
-
-    .hero-content { z-index: 1; max-width: 900px; padding: 0 5%; }
+    .hero-content { z-index: 1; max-width: 900px; }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 10vw, 6rem);
+      font-size: clamp(2.5rem, 12vw, 5.5rem); /* Fluido */
       font-weight: 900;
-      line-height: 1;
-      margin-bottom: 2rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
       background: linear-gradient(to bottom, #fff 0%, #aaa 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    /* --- Botones con Brillo --- */
+    .hero p {
+      font-size: clamp(0.9rem, 4vw, 1.2rem);
+      opacity: 0.8;
+      margin-bottom: 2.5rem;
+      letter-spacing: 1px;
+    }
+
+    /* --- Botones --- */
     .btn {
       position: relative;
       display: inline-block;
       background: var(--accent);
       color: white;
-      padding: 1.2rem 3rem;
-      border-radius: 5px; /* Más cuadrado = más premium/estudio */
+      padding: 1rem 2rem;
+      border-radius: 4px;
       text-decoration: none;
       font-weight: 700;
+      font-size: 0.9rem;
       overflow: hidden;
       transition: 0.4s;
+      border: none;
     }
 
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: 0.5s;
-    }
-
-    .btn:hover::before { left: 100%; }
-    .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(249,115,22,0.4); }
-
-    /* --- Secciones y Tarjetas Glass --- */
-    section { padding: 10rem 5%; max-width: 1300px; margin: 0 auto; }
+    /* --- Secciones --- */
+    section { padding: 5rem 5%; max-width: 1300px; margin: 0 auto; }
 
     h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      text-align: center;
-      margin-bottom: 5rem;
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      margin-bottom: 3rem;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
 
     .card {
       background: var(--glass);
-      padding: 3.5rem 2rem;
-      border-radius: 20px;
+      padding: 2.5rem 1.5rem;
+      border-radius: 15px;
       border: 1px solid var(--glass-border);
       backdrop-filter: blur(10px);
-      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-      text-align: left;
+      transition: 0.4s;
     }
 
-    .card:hover {
-      background: rgba(255,255,255,0.06);
-      border-color: var(--accent);
-      transform: translateY(-15px) scale(1.02);
-    }
-
-    .card-icon {
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-        display: block;
-    }
-
-    /* --- Portafolio Moderno --- */
+    /* --- Portafolio --- */
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
     }
 
     .portfolio-item {
       position: relative;
-      border-radius: 24px;
+      border-radius: 20px;
       overflow: hidden;
-      height: 450px;
-    }
-
-    .portfolio-item img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: 1s cubic-bezier(0.2, 1, 0.2, 1);
+      height: 350px; /* Reducido para móvil */
     }
 
     .portfolio-overlay {
       position: absolute;
-      bottom: 0; left: 0; width: 100%;
-      padding: 3rem;
-      background: linear-gradient(to top, rgba(4,18,8,1), transparent);
-      transform: translateY(20px);
+      inset: 0;
+      padding: 2rem;
+      background: linear-gradient(to top, rgba(4,18,8,0.95), transparent);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
       opacity: 0;
-      transition: 0.5s;
+      transition: 0.4s;
     }
 
-    .portfolio-item:hover .portfolio-overlay { transform: translateY(0); opacity: 1; }
-    .portfolio-item:hover img { transform: scale(1.1); }
+    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
 
     /* --- Contacto --- */
     .contact-wrapper {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
+        grid-template-columns: 1fr;
+        gap: 3rem;
         background: var(--glass);
-        padding: 4rem;
-        border-radius: 30px;
+        padding: 2rem;
+        border-radius: 20px;
         border: 1px solid var(--glass-border);
+    }
+
+    @media (min-width: 900px) {
+        .contact-wrapper { grid-template-columns: 1fr 1fr; padding: 4rem; }
+        .logo { font-size: 2.2rem; }
+        .nav-links a { font-size: 0.9rem; }
+        section { padding: 8rem 5%; }
+        .portfolio-item { height: 450px; }
     }
 
     form input, form textarea {
       width: 100%;
-      padding: 1.2rem;
-      margin-bottom: 1.5rem;
+      padding: 1rem;
+      margin-bottom: 1rem;
       background: rgba(255,255,255,0.05);
       border: 1px solid var(--glass-border);
       color: white;
-      border-radius: 8px;
+      border-radius: 6px;
+      font-family: inherit;
     }
-
-    form input:focus { outline: none; border-color: var(--accent); }
 
     /* --- Footer --- */
-    footer { padding: 5rem 5%; border-top: 1px solid var(--glass-border); text-align: center; }
+    footer { padding: 3rem 5%; border-top: 1px solid var(--glass-border); text-align: center; }
 
-    /* --- Animación de Entrada --- */
+    /* --- Animación --- */
     .reveal {
       opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s cubic-bezier(0.2, 1, 0.2, 1);
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
     }
-
     .reveal.active { opacity: 1; transform: translateY(0); }
 
-    @media (max-width: 900px) {
-        .contact-wrapper { grid-template-columns: 1fr; padding: 2rem; }
+    /* Esconder nav links en móvil muy pequeño si chocan */
+    @media (max-width: 480px) {
         .nav-links { display: none; }
     }
   </style>
@@ -263,20 +238,19 @@
     <nav>
       <a href="#" class="logo">DOT<span>.</span>UP</a>
       <ul class="nav-links">
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#proceso">Proceso</a></li>
-        <li><a href="#portafolio">Trabajos</a></li>
+        <li><a href="#servicios">Labs</a></li>
+        <li><a href="#portafolio">Work</a></li>
       </ul>
-      <a href="https://wa.me/56995924177" class="btn" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;">PROYECTO NUEVO</a>
+      <a href="https://wa.me/56995924177" class="btn" style="padding: 0.6rem 1.2rem; font-size: 0.75rem;">WHATSAPP</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
       <div class="hero-content">
-        <h1>Elevamos tu ADN digital.</h1>
-        <p style="font-size: 1.2rem; opacity: 0.7; margin-bottom: 3rem; letter-spacing: 1px;">ESTUDIO BOUTIQUE DE DISEÑO & DESARROLLO WEB EN CHILE.</p>
-        <a href="#contacto" class="btn">DESCUBRE MÁS</a>
+        <h1>Elevamos tu ADN digital<span>.</span></h1>
+        <p>ESTUDIO BOUTIQUE DE DISEÑO & DESARROLLO WEB EN CHILE.</p>
+        <a href="#contacto" class="btn">INICIAR PROYECTO</a>
       </div>
     </section>
 
@@ -284,58 +258,40 @@
       <h2 style="text-align: left;">Expertise<span>.</span></h2>
       <div class="grid">
         <div class="card">
-          <span class="card-icon">🚀</span>
-          <h3>Performance</h3>
-          <p>Webs que cargan en menos de 2 segundos. La velocidad no es lujo, es conversión.</p>
+          <span style="font-size: 2rem;">🚀</span>
+          <h3 style="margin: 1rem 0;">Performance</h3>
+          <p style="font-size: 0.9rem; opacity: 0.7;">Webs ultra rápidas. La velocidad no es lujo, es conversión pura.</p>
         </div>
         <div class="card">
-          <span class="card-icon">💎</span>
-          <h3>Boutique Design</h3>
-          <p>No usamos plantillas. Cada pixel se coloca con un propósito estratégico.</p>
+          <span style="font-size: 2rem;">💎</span>
+          <h3 style="margin: 1rem 0;">Boutique Design</h3>
+          <p style="font-size: 0.9rem; opacity: 0.7;">Sin plantillas. Diseño estratégico para marcas que buscan exclusividad.</p>
         </div>
         <div class="card">
-          <span class="card-icon">📈</span>
-          <h3>SEO Core</h3>
-          <p>Estructura optimizada desde la primera línea de código para dominar Google.</p>
+          <span style="font-size: 2rem;">📈</span>
+          <h3 style="margin: 1rem 0;">SEO Core</h3>
+          <p style="font-size: 0.9rem; opacity: 0.7;">Estructura optimizada para escalar posiciones en Google.</p>
         </div>
       </div>
     </section>
 
-    <section id="proceso" class="reveal">
-        <h2 style="text-align: right;">Metodología<span>.</span></h2>
-        <div class="grid">
-            <div style="border-left: 2px solid var(--accent); padding-left: 2rem;">
-                <h4 style="color:var(--accent)">01. Inmersión</h4>
-                <p>Análisis profundo de tu competencia y tu marca.</p>
-            </div>
-            <div style="border-left: 2px solid var(--accent); padding-left: 2rem;">
-                <h4 style="color:var(--accent)">02. Forjado</h4>
-                <p>Desarrollo técnico con las tecnologías más modernas de 2026.</p>
-            </div>
-            <div style="border-left: 2px solid var(--accent); padding-left: 2rem;">
-                <h4 style="color:var(--accent)">03. Escalado</h4>
-                <p>Lanzamiento y optimización continua de resultados.</p>
-            </div>
-        </div>
-    </section>
-
     <section id="portafolio" class="reveal">
-      <h2>Showcase<span>.</span></h2>
+      <h2>Work<span>.</span></h2>
       <div class="portfolio-grid">
         <div class="portfolio-item">
-          <img src="https://i.postimg.cc/9FyyQg5j/Captura-de-pantalla-2026-02-23-180252.png" alt="Proyecto">
+          <img src="https://i.postimg.cc/9FyyQg5j/Captura-de-pantalla-2026-02-23-180252.png" alt="Sastrería Ibarra">
           <div class="portfolio-overlay">
             <h3>Sastrería Ibarra</h3>
-            <p>E-commerce Luxury</p>
-            <a href="https://dotup-chile.github.io/Sastreria_isi/" class="btn" style="padding: 0.5rem 1rem; margin-top: 1rem;">VER SITIO</a>
+            <p style="font-size: 0.8rem; margin-bottom: 1rem;">E-commerce Luxury</p>
+            <a href="https://dotup-chile.github.io/Sastreria_isi/" class="btn" style="padding: 0.5rem 1rem; font-size: 0.7rem;">VER SITIO</a>
           </div>
         </div>
         <div class="portfolio-item">
             <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800" alt="Work">
             <div class="portfolio-overlay">
-              <h3>Corporate Next</h3>
-              <p>Tech Solutions</p>
-              <button class="btn" style="padding: 0.5rem 1rem; margin-top: 1rem;">PRÓXIMAMENTE</button>
+              <h3>Próximo Nivel</h3>
+              <p style="font-size: 0.8rem; margin-bottom: 1rem;">Tech Solutions</p>
+              <span class="btn" style="padding: 0.5rem 1rem; font-size: 0.7rem; background: rgba(255,255,255,0.1);">COMING SOON</span>
             </div>
           </div>
       </div>
@@ -344,48 +300,44 @@
     <section id="contacto" class="reveal">
         <div class="contact-wrapper">
             <div>
-                <h2>Hablemos de tu próximo gran paso.</h2>
-                <p style="opacity:0.6; margin-bottom: 2rem;">Estamos listos para transformar tu presencia online.</p>
-                <p><strong>Email:</strong> contacto.dotup@gmail.com</p>
-                <p><strong>WhatsApp:</strong> +56 9 9592 4177</p>
+                <h2>Hablemos<span>.</span></h2>
+                <p style="opacity:0.6; margin-bottom: 2rem;">Lleva tu marca al siguiente nivel.</p>
+                <p style="font-size: 0.9rem;"><strong>Email:</strong> contacto.dotup@gmail.com</p>
+                <p style="font-size: 0.9rem;"><strong>Santiago, Chile</strong></p>
             </div>
             <form action="https://formspree.io/f/mlgwwnjy" method="POST">
-                <input type="text" name="name" placeholder="Nombre completo" required>
-                <input type="email" name="email" placeholder="Email corporativo" required>
-                <textarea name="message" rows="4" placeholder="Breve descripción del proyecto" required></textarea>
-                <button type="submit" class="btn" style="width: 100%;">ENVIAR CONSULTA</button>
+                <input type="text" name="name" placeholder="Tu nombre" required>
+                <input type="email" name="email" placeholder="Tu email" required>
+                <textarea name="message" rows="4" placeholder="¿Cómo te ayudamos?" required></textarea>
+                <button type="submit" class="btn" style="width: 100%;">ENVIAR MENSAJE</button>
             </form>
         </div>
     </section>
   </main>
 
   <footer>
-    <div class="logo" style="font-size: 1.5rem;">DOT<span>.</span>UP</div>
-    <p style="opacity: 0.4; font-size: 0.8rem; margin-top: 1rem;">&copy; 2026 DOTUP WEB STUDIO. SANTIAGO, CHILE.</p>
+    <div class="logo" style="font-size: 1.2rem;">DOT<span>.</span>UP</div>
+    <p style="opacity: 0.4; font-size: 0.7rem; margin-top: 1rem;">&copy; 2026 DOTUP STUDIO. CHILE.</p>
   </footer>
 
   <script>
-    // Header Effect
     window.addEventListener('scroll', () => {
       const header = document.getElementById('header');
-      header.classList.toggle('scrolled', window.scrollY > 50);
+      header.classList.toggle('scrolled', window.scrollY > 30);
     });
 
-    // Reveal Animation on Scroll
     const reveal = () => {
       const reveals = document.querySelectorAll('.reveal');
       reveals.forEach(el => {
         const windowHeight = window.innerHeight;
         const elementTop = el.getBoundingClientRect().top;
-        const elementVisible = 150;
-        if (elementTop < windowHeight - elementVisible) {
+        if (elementTop < windowHeight - 100) {
           el.classList.add('active');
         }
       });
     }
-
     window.addEventListener('scroll', reveal);
-    reveal(); // Lanzar una vez al cargar
+    reveal();
   </script>
 </body>
 </html>
