@@ -299,13 +299,28 @@
     </section>
 
    <section id="contacto" class="reveal">
-        <h2>Hablemos tu idea<span>.</span></h2>
-        <form action="https://formspree.io/f/mlgwwnjy" method="POST">
-            <input type="text" name="name" placeholder="Nombre" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="message" rows="4" placeholder="Cuéntanos tu idea" required></textarea>
-            <button type="submit" class="btn" style="width: 100%;">ENVIAR</button>
-        </form>
+        <div style="width: 100%; max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2 style="margin-bottom: 1rem;">Hablemos tu idea<span>.</span></h2>
+            <p style="opacity: 0.6; margin-bottom: 3rem;">Déjanos tus datos y nos pondremos en contacto contigo a la brevedad.</p>
+            
+            <form action="https://formspree.io/f/mlgwwnjy" method="POST" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+                
+                <div style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                    <input type="text" name="name" placeholder="Tu Nombre" required 
+                        style="width: 100%; padding: 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; border-radius: 8px; font-family: inherit; margin-bottom: 0;">
+                    
+                    <input type="email" name="email" placeholder="Tu Email Corporativo" required 
+                        style="width: 100%; padding: 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; border-radius: 8px; font-family: inherit; margin-bottom: 0;">
+                </div>
+
+                <textarea name="message" rows="5" placeholder="Cuéntanos un poco sobre tu proyecto..." required 
+                    style="width: 100%; padding: 1.2rem; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); color: white; border-radius: 8px; font-family: inherit; margin-bottom: 2rem; resize: none;"></textarea>
+                
+                <button type="submit" class="btn" style="width: 100%; max-width: 400px; padding: 1.2rem; cursor: pointer; text-transform: uppercase; letter-spacing: 2px;">
+                    Enviar Mensaje
+                </button>
+            </form>
+        </div>
     </section>
   </main>
 
