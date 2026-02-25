@@ -17,13 +17,13 @@
       --glass-border: rgba(255, 255, 255, 0.1);
     }
 
-    /* ELIMINAR MÁRGENES FANTASMA */
+    /* RESET TOTAL PARA ELIMINAR MÁRGENES NEGROS */
     html, body { 
       margin: 0; 
       padding: 0; 
       width: 100%; 
       max-width: 100%;
-      overflow-x: hidden; /* Evita el scroll lateral y las franjas negras */
+      overflow-x: hidden;
       background: #041208;
       font-family: 'Inter', sans-serif;
       color: var(--white);
@@ -32,7 +32,7 @@
 
     * { box-sizing: border-box; scroll-behavior: smooth; }
 
-    /* ANIMACIÓN FONDO */
+    /* ANIMACIÓN FONDO HERO */
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -52,7 +52,6 @@
     header.scrolled {
       background: rgba(8, 43, 20, 0.95);
       backdrop-filter: blur(15px);
-      padding: 0.7rem 5%;
       border-bottom: 1px solid var(--glass-border);
     }
 
@@ -73,7 +72,7 @@
     }
     .logo span { color: var(--accent); }
 
-    /* HERO SIN MÁRGENES */
+    /* HERO */
     .hero {
       width: 100%;
       min-height: 100vh;
@@ -92,23 +91,21 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.5rem, 10vw, 5rem);
       margin-bottom: 1rem;
-      max-width: 900px;
     }
 
     /* BOTONES */
     .btn {
       background: var(--accent);
       color: white;
-      padding: 1rem 2.5rem;
+      padding: 1rem 2rem;
       border-radius: 4px;
       text-decoration: none;
       font-weight: 700;
       transition: 0.3s;
-      border: none;
-      cursor: pointer;
+      display: inline-block;
     }
 
-    /* SECCIONES CENTRADAS */
+    /* SECCIONES */
     section {
       width: 100%;
       padding: 6rem 5%;
@@ -122,7 +119,6 @@
       font-size: clamp(2rem, 7vw, 3.5rem);
       text-align: center;
       margin-bottom: 3rem;
-      width: 100%;
     }
 
     .grid {
@@ -142,7 +138,7 @@
       backdrop-filter: blur(10px);
     }
 
-    /* PORTAFOLIO CENTRADO */
+    /* PORTAFOLIO */
     .portfolio-grid {
       width: 100%;
       max-width: 1100px;
@@ -157,7 +153,6 @@
       border-radius: 24px;
       overflow: hidden;
       height: 400px;
-      width: 100%;
       box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
 
@@ -170,47 +165,33 @@
     .portfolio-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(4, 18, 8, 0.8);
+      background: rgba(4, 18, 8, 0.9);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
+      padding: 2rem;
       opacity: 0;
       transition: 0.4s;
     }
 
     .portfolio-item:hover .portfolio-overlay { opacity: 1; }
 
-    /* STATS (LOS NÚMEROS) */
+    /* STATS */
     .stats-section {
       background: rgba(15, 61, 30, 0.2);
       width: 100%;
+      padding: 4rem 5%;
     }
 
     .counter {
       font-size: 3.5rem;
       font-weight: 900;
       color: var(--accent);
-      display: block;
     }
 
-    /* FORMULARIO */
-    form {
-      width: 100%;
-      max-width: 600px;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 1.2rem;
-      margin-bottom: 1rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--glass-border);
-      color: white;
-      border-radius: 8px;
-    }
-
-    /* REVEAL ANIMATION */
+    /* REVEAL */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
@@ -219,7 +200,6 @@
     .reveal.active { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 768px) {
-      .nav-links { display: none; }
       section { padding: 4rem 5%; }
     }
   </style>
@@ -236,7 +216,7 @@
   <main>
     <section class="hero">
       <h1>Elevamos tu ADN digital<span>.</span></h1>
-      <p style="opacity: 0.7; letter-spacing: 2px;">ESTUDIO WEB BOUTIQUE</p>
+      <p style="opacity: 0.7; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem;">Diseño & Desarrollo Web Boutique</p>
       <a href="#contacto" class="btn" style="margin-top: 2rem;">INICIAR PROYECTO</a>
     </section>
 
@@ -246,12 +226,17 @@
         <div class="card">
           <div style="font-size: 2.5rem; margin-bottom: 1rem;">🚀</div>
           <h3>Performance</h3>
-          <p style="opacity: 0.6; font-size: 0.9rem;">Webs diseñadas para la velocidad absoluta.</p>
+          <p style="opacity: 0.6; font-size: 0.9rem;">Webs ultra rápidas. La velocidad es el nuevo estándar de lujo.</p>
         </div>
         <div class="card">
           <div style="font-size: 2.5rem; margin-bottom: 1rem;">💎</div>
-          <h3>Diseño Exclusivo</h3>
-          <p style="opacity: 0.6; font-size: 0.9rem;">Cada píxel tiene un propósito para tu marca.</p>
+          <h3>Boutique Design</h3>
+          <p style="opacity: 0.6; font-size: 0.9rem;">Diseños únicos, sin plantillas, pensados para destacar.</p>
+        </div>
+        <div class="card">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📈</div>
+          <h3>SEO Core</h3>
+          <p style="opacity: 0.6; font-size: 0.9rem;">Estructuras optimizadas para conquistar los buscadores.</p>
         </div>
       </div>
     </section>
@@ -260,12 +245,16 @@
         <h2>Metodología<span>.</span></h2>
         <div class="grid">
             <div style="text-align: center; border-top: 1px solid var(--accent); padding-top: 2rem;">
-                <h4 style="color:var(--accent)">01. Inmersión</h4>
-                <p>Análisis de tu mercado.</p>
+                <h4 style="color:var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">01. Inmersión</h4>
+                <p style="font-size: 0.9rem; opacity: 0.7;">Analizamos tu marca para crear una estrategia digital ganadora.</p>
             </div>
             <div style="text-align: center; border-top: 1px solid var(--accent); padding-top: 2rem;">
-                <h4 style="color:var(--accent)">02. Desarrollo</h4>
-                <p>Código limpio y moderno.</p>
+                <h4 style="color:var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">02. Forjado</h4>
+                <p style="font-size: 0.9rem; opacity: 0.7;">Construimos tu sitio con código limpio y las mejores prácticas.</p>
+            </div>
+            <div style="text-align: center; border-top: 1px solid var(--accent); padding-top: 2rem;">
+                <h4 style="color:var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">03. Escalado</h4>
+                <p style="font-size: 0.9rem; opacity: 0.7;">Lanzamos y optimizamos para que tu negocio no pare de crecer.</p>
             </div>
         </div>
     </section>
@@ -276,10 +265,19 @@
         <div class="portfolio-item">
           <img src="https://i.postimg.cc/9FyyQg5j/Captura-de-pantalla-2026-02-23-180252.png" alt="Sastrería">
           <div class="portfolio-overlay">
-            <h3>Proyecto Sastería</h3>
-            <a href="https://dotup-chile.github.io/Sastreria_isi/" class="btn" style="padding: 0.5rem 1rem; font-size: 0.7rem; margin-top: 1rem;">VER PROYECTO</a>
+            <h3>Proyecto Sastreria</h3>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 1.5rem;">Sastrería Premium</p>
+            <a href="https://dotup-chile.github.io/Sastreria_isi/" class="btn" style="padding: 0.5rem 1rem; font-size: 0.7rem;">VER PROYECTO</a>
           </div>
         </div>
+        <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800" alt="Work">
+            <div class="portfolio-overlay">
+              <h3>Próximo Nivel</h3>
+              <p style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 1.5rem;">Tu marca podría estar aquí.</p>
+              <span class="btn" style="padding: 0.5rem 1rem; font-size: 0.7rem; background: rgba(255,255,255,0.1);">COMING SOON</span>
+            </div>
+          </div>
       </div>
     </section>
 
@@ -287,11 +285,15 @@
         <div class="grid">
           <div>
             <span class="counter" data-target="15">0</span>
-            <p>PROYECTOS</p>
+            <p style="font-size: 0.7rem; letter-spacing: 2px;">PROYECTOS LANZADOS</p>
           </div>
           <div>
             <span class="counter" data-target="100">0</span>
-            <p>SATISFACCIÓN</p>
+            <p style="font-size: 0.7rem; letter-spacing: 2px;">SATISFACCIÓN</p>
+          </div>
+          <div>
+            <span class="counter" data-target="24">0</span>
+            <p style="font-size: 0.7rem; letter-spacing: 2px;">SOPORTE RECORD (HRS)</p>
           </div>
         </div>
     </section>
@@ -299,25 +301,24 @@
     <section id="contacto" class="reveal">
         <h2>Hablemos tu idea<span>.</span></h2>
         <form action="https://formspree.io/f/mlgwwnjy" method="POST">
-            <input type="text" name="name" placeholder="Nombre" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="message" rows="4" placeholder="Cuéntanos tu idea" required></textarea>
-            <button type="submit" class="btn" style="width: 100%;">ENVIAR</button>
+            <input type="text" name="name" placeholder="Tu Nombre" required>
+            <input type="email" name="email" placeholder="Tu Email Corporativo" required>
+            <textarea name="message" rows="4" placeholder="¿Cómo podemos elevar tu marca?" required></textarea>
+            <button type="submit" class="btn" style="width: 100%;">ENVIAR CONSULTA</button>
         </form>
     </section>
   </main>
 
-  <footer style="padding: 3rem; text-align: center; border-top: 1px solid var(--glass-border);">
-    <p style="opacity: 0.4; font-size: 0.8rem;">&copy; 2026 DOTUP STUDIO. CHILE.</p>
+  <footer style="padding: 4rem 5%; text-align: center; border-top: 1px solid var(--glass-border);">
+    <div class="logo" style="font-size: 1.2rem; margin-bottom: 1rem;">DOT<span>.</span>UP</div>
+    <p style="opacity: 0.4; font-size: 0.7rem; letter-spacing: 1px;">&copy; 2026 DOTUP WEB STUDIO. SANTIAGO, CHILE.</p>
   </footer>
 
   <script>
-    // Header
     window.addEventListener('scroll', () => {
       document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Reveal & Counters
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -327,19 +328,19 @@
               const target = +c.getAttribute('data-target');
               let count = 0;
               const timer = setInterval(() => {
-                count += Math.ceil(target/50);
+                count += Math.ceil(target/40);
                 if(count >= target) {
                   c.innerText = target + (target === 100 ? "%" : "+");
                   clearInterval(timer);
                 } else {
                   c.innerText = count;
                 }
-              }, 30);
+              }, 40);
             });
           }
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
   </script>
