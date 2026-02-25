@@ -6,9 +6,7 @@
   <title>DotUp Web Studio | Elevamos tu presencia digital</title>
   
   <link rel="icon" type="image/png" href="favicon.png">
-  <meta name="description" content="DotUp Web Studio: Diseño y desarrollo web profesional para pymes en Chile. Webs modernas, rápidas y autoadministrables."/>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
@@ -16,43 +14,47 @@
       --darker-green: #082b14;
       --accent: #f97316;
       --accent-hover: #ea580c;
-      --accent-glow: rgba(249,115,22,0.3);
       --white: #ffffff;
-      --light-gray: #f8fafc;
-      --text-gray: #64748b;
-      --dark-text: #0f172a;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
     }
 
     * { margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth; }
     
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--light-gray);
-      color: var(--dark-text);
+      background: #041208; /* Fondo ultra oscuro para resaltar el verde */
+      color: var(--white);
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* --- Header & Nav --- */
+    /* --- Animaciones de Fondo --- */
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* --- Header Premium --- */
     header {
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      background: transparent;
-      transition: all 0.4s;
-      padding: 1rem 0;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 1.5rem 0;
     }
 
     header.scrolled {
-      background: rgba(15, 61, 30, 0.98);
-      padding: 0.5rem 0;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      backdrop-filter: blur(10px);
+      background: rgba(8, 43, 20, 0.8);
+      backdrop-filter: blur(15px);
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--glass-border);
     }
 
     nav {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -62,212 +64,196 @@
 
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: var(--white);
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 900;
+      letter-spacing: -1px;
     }
 
     .logo span { color: var(--accent); }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a {
       color: var(--white);
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
       transition: 0.3s;
+      opacity: 0.8;
     }
+    .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-    .nav-links a:hover { color: var(--accent); }
-
-    /* --- Hero Section --- */
+    /* --- Hero Section Impactante --- */
     .hero {
       height: 100vh;
-      background: linear-gradient(rgba(15, 61, 30, 0.8), rgba(8, 43, 20, 0.7)), 
-                  url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2015') center/cover no-repeat;
+      background: linear-gradient(-45deg, #0f3d1e, #082b14, #041208, #1a4d2e);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: var(--white);
-      padding: 0 5%;
+      position: relative;
     }
 
-    .hero-content { max-width: 800px; }
+    .hero::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+        opacity: 0.1;
+    }
+
+    .hero-content { z-index: 1; max-width: 900px; padding: 0 5%; }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 8vw, 4.5rem);
-      margin-bottom: 1.5rem;
-      line-height: 1.1;
+      font-size: clamp(3rem, 10vw, 6rem);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 2rem;
+      background: linear-gradient(to bottom, #fff 0%, #aaa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .hero p {
-      font-size: clamp(1.1rem, 3vw, 1.4rem);
-      margin-bottom: 2.5rem;
-      opacity: 0.9;
-    }
-
-    /* --- Buttons --- */
+    /* --- Botones con Brillo --- */
     .btn {
+      position: relative;
       display: inline-block;
       background: var(--accent);
       color: white;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
+      padding: 1.2rem 3rem;
+      border-radius: 5px; /* Más cuadrado = más premium/estudio */
       text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-      border: none;
-      cursor: pointer;
+      font-weight: 700;
+      overflow: hidden;
+      transition: 0.4s;
     }
 
-    .btn:hover {
-      background: var(--accent-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px var(--accent-glow);
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: 0.5s;
     }
 
-    /* --- Sections --- */
-    section {
-      padding: 6rem 5%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    .btn:hover::before { left: 100%; }
+    .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(249,115,22,0.4); }
+
+    /* --- Secciones y Tarjetas Glass --- */
+    section { padding: 10rem 5%; max-width: 1300px; margin: 0 auto; }
 
     h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
+      font-size: clamp(2.5rem, 5vw, 4rem);
       text-align: center;
-      margin-bottom: 3rem;
-      color: var(--dark-green);
+      margin-bottom: 5rem;
     }
 
-    /* --- Grid & Cards --- */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
     }
 
     .card {
-      background: white;
-      padding: 2.5rem;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      text-align: center;
-      transition: 0.3s;
+      background: var(--glass);
+      padding: 3.5rem 2rem;
+      border-radius: 20px;
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(10px);
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      text-align: left;
     }
 
-    .card:hover { transform: translateY(-10px); }
+    .card:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: var(--accent);
+      transform: translateY(-15px) scale(1.02);
+    }
 
-    .card h3 { color: var(--dark-green); margin-bottom: 1rem; }
+    .card-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        display: block;
+    }
 
-    /* --- Portfolio --- */
+    /* --- Portafolio Moderno --- */
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 3rem;
     }
 
     .portfolio-item {
       position: relative;
-      border-radius: 15px;
+      border-radius: 24px;
       overflow: hidden;
-      aspect-ratio: 16/9;
+      height: 450px;
     }
 
     .portfolio-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: 0.5s;
+      width: 100%; height: 100%; object-fit: cover;
+      transition: 1s cubic-bezier(0.2, 1, 0.2, 1);
     }
 
     .portfolio-overlay {
       position: absolute;
-      inset: 0;
-      background: rgba(15, 61, 30, 0.9);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      bottom: 0; left: 0; width: 100%;
+      padding: 3rem;
+      background: linear-gradient(to top, rgba(4,18,8,1), transparent);
+      transform: translateY(20px);
       opacity: 0;
-      transition: 0.4s;
-      color: white;
-      padding: 20px;
-      text-align: center;
+      transition: 0.5s;
     }
 
-    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+    .portfolio-item:hover .portfolio-overlay { transform: translateY(0); opacity: 1; }
     .portfolio-item:hover img { transform: scale(1.1); }
 
-    /* --- Stats Section --- */
-    .stats-container {
-        background: var(--dark-green);
-        color: white;
-        padding: 4rem 5%;
-        max-width: 100%;
-        margin-top: 4rem;
+    /* --- Contacto --- */
+    .contact-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        background: var(--glass);
+        padding: 4rem;
+        border-radius: 30px;
+        border: 1px solid var(--glass-border);
     }
-
-    .counter {
-        font-size: 3.5rem;
-        font-weight: 700;
-        color: var(--accent);
-        display: block;
-    }
-
-    /* --- Form --- */
-    .contact-container {
-      background: var(--dark-green);
-      color: white;
-      padding: 4rem;
-      border-radius: 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .contact-container h2 { color: white; }
 
     form input, form textarea {
       width: 100%;
-      padding: 1rem;
-      margin-bottom: 1rem;
+      padding: 1.2rem;
+      margin-bottom: 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--glass-border);
+      color: white;
       border-radius: 8px;
-      border: none;
-      font-family: inherit;
     }
+
+    form input:focus { outline: none; border-color: var(--accent); }
 
     /* --- Footer --- */
-    footer {
-      background: var(--darker-green);
-      color: white;
-      padding: 4rem 5% 2rem;
-      text-align: center;
+    footer { padding: 5rem 5%; border-top: 1px solid var(--glass-border); text-align: center; }
+
+    /* --- Animación de Entrada --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s cubic-bezier(0.2, 1, 0.2, 1);
     }
 
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2rem 0;
-    }
+    .reveal.active { opacity: 1; transform: translateY(0); }
 
-    .social-links a { color: white; text-decoration: none; font-weight: bold; }
-    .social-links a:hover { color: var(--accent); }
-
-    /* --- Mobile Responsive --- */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      h2 { font-size: 2rem; }
-      .contact-container { padding: 2rem; }
+    @media (max-width: 900px) {
+        .contact-wrapper { grid-template-columns: 1fr; padding: 2rem; }
+        .nav-links { display: none; }
     }
   </style>
 </head>
@@ -275,190 +261,131 @@
 
   <header id="header">
     <nav>
-      <a href="#" class="logo">Dot<span>.</span>Up</a>
+      <a href="#" class="logo">DOT<span>.</span>UP</a>
       <ul class="nav-links">
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#proceso">Proceso</a></li>
-        <li><a href="#portafolio">Portafolio</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#portafolio">Trabajos</a></li>
       </ul>
-      <a href="https://wa.me/56995924177" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">WhatsApp</a>
+      <a href="https://wa.me/56995924177" class="btn" style="padding: 0.8rem 1.5rem; font-size: 0.8rem;">PROYECTO NUEVO</a>
     </nav>
   </header>
 
   <main>
     <section class="hero">
       <div class="hero-content">
-        <h1>Diseñamos el futuro de tu negocio</h1>
-        <p>Creamos sitios web autoadministrables, rápidos y optimizados para Google. Elevamos pymes chilenas al siguiente nivel digital.</p>
-        <a href="#contacto" class="btn">Empezar mi proyecto</a>
+        <h1>Elevamos tu ADN digital.</h1>
+        <p style="font-size: 1.2rem; opacity: 0.7; margin-bottom: 3rem; letter-spacing: 1px;">ESTUDIO BOUTIQUE DE DISEÑO & DESARROLLO WEB EN CHILE.</p>
+        <a href="#contacto" class="btn">DESCUBRE MÁS</a>
       </div>
     </section>
 
-    <section id="servicios">
-      <h2>Nuestros Servicios</h2>
+    <section id="servicios" class="reveal">
+      <h2 style="text-align: left;">Expertise<span>.</span></h2>
       <div class="grid">
         <div class="card">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">🎨</div>
-          <h3>Diseño Web Pro</h3>
-          <p>Webs modernas que se adaptan a todos los dispositivos (celulares, tablets y PC).</p>
+          <span class="card-icon">🚀</span>
+          <h3>Performance</h3>
+          <p>Webs que cargan en menos de 2 segundos. La velocidad no es lujo, es conversión.</p>
         </div>
         <div class="card">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
-          <h3>SEO y Velocidad</h3>
-          <p>No solo nos vemos bien, cargamos rápido para que tus clientes no se vayan.</p>
+          <span class="card-icon">💎</span>
+          <h3>Boutique Design</h3>
+          <p>No usamos plantillas. Cada pixel se coloca con un propósito estratégico.</p>
         </div>
         <div class="card">
-          <div style="font-size: 3rem; margin-bottom: 1rem;">🛠️</div>
-          <h3>Soporte Mensual</h3>
-          <p>Mantenimiento preventivo, seguridad y actualizaciones incluidas para tu tranquilidad.</p>
+          <span class="card-icon">📈</span>
+          <h3>SEO Core</h3>
+          <p>Estructura optimizada desde la primera línea de código para dominar Google.</p>
         </div>
       </div>
     </section>
 
-    <section id="proceso" style="background: white; max-width: 100%; border-top: 1px solid #eee;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 2rem 5%;">
-          <h2>Tu camino al éxito digital</h2>
-          <div class="grid">
-            <div class="card" style="box-shadow: none; border: 1px solid #f1f5f9;">
-              <div style="font-size: 1.5rem; color: var(--accent); font-weight: bold; margin-bottom: 1rem;">01. ESTRATEGIA</div>
-              <h3>Café y Planificación</h3>
-              <p>Nos cuentas tu idea y definimos los objetivos comerciales de tu nueva web.</p>
+    <section id="proceso" class="reveal">
+        <h2 style="text-align: right;">Metodología<span>.</span></h2>
+        <div class="grid">
+            <div style="border-left: 2px solid var(--accent); padding-left: 2rem;">
+                <h4 style="color:var(--accent)">01. Inmersión</h4>
+                <p>Análisis profundo de tu competencia y tu marca.</p>
             </div>
-            <div class="card" style="box-shadow: none; border: 1px solid #f1f5f9;">
-              <div style="font-size: 1.5rem; color: var(--accent); font-weight: bold; margin-bottom: 1rem;">02. DISEÑO</div>
-              <h3>Magia Creativa</h3>
-              <p>Construimos una interfaz moderna, rápida y optimizada para convertir visitas en ventas.</p>
+            <div style="border-left: 2px solid var(--accent); padding-left: 2rem;">
+                <h4 style="color:var(--accent)">02. Forjado</h4>
+                <p>Desarrollo técnico con las tecnologías más modernas de 2026.</p>
             </div>
-            <div class="card" style="box-shadow: none; border: 1px solid #f1f5f9;">
-              <div style="font-size: 1.5rem; color: var(--accent); font-weight: bold; margin-bottom: 1rem;">03. ENTREGA</div>
-              <h3>¡Despegue!</h3>
-              <p>Lanzamos tu sitio y te capacitamos para que seas dueño total de tu contenido.</p>
+            <div style="border-left: 2px solid var(--accent); padding-left: 2rem;">
+                <h4 style="color:var(--accent)">03. Escalado</h4>
+                <p>Lanzamiento y optimización continua de resultados.</p>
             </div>
-          </div>
         </div>
     </section>
 
-    <section id="portafolio" style="background: #eceff1; max-width: 100%;">
-      <div style="max-width: 1200px; margin: 0 auto;">
-        <h2>Proyectos Exitosos</h2>
-        <div class="portfolio-grid">
-          <div class="portfolio-item">
-            <img src="https://i.postimg.cc/9FyyQg5j/Captura-de-pantalla-2026-02-23-180252.png" alt="Sastrería Ibarra">
+    <section id="portafolio" class="reveal">
+      <h2>Showcase<span>.</span></h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="https://i.postimg.cc/9FyyQg5j/Captura-de-pantalla-2026-02-23-180252.png" alt="Proyecto">
+          <div class="portfolio-overlay">
+            <h3>Sastrería Ibarra</h3>
+            <p>E-commerce Luxury</p>
+            <a href="https://dotup-chile.github.io/Sastreria_isi/" class="btn" style="padding: 0.5rem 1rem; margin-top: 1rem;">VER SITIO</a>
+          </div>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=800" alt="Work">
             <div class="portfolio-overlay">
-              <h3>Sastrería Ibarra</h3>
-              <p>Rediseño Corporativo</p>
-              <a href="https://dotup-chile.github.io/Sastreria_isi/" target="_blank" class="btn" style="margin-top:10px;">Ver Web</a>
+              <h3>Corporate Next</h3>
+              <p>Tech Solutions</p>
+              <button class="btn" style="padding: 0.5rem 1rem; margin-top: 1rem;">PRÓXIMAMENTE</button>
             </div>
           </div>
-          <div class="portfolio-item">
-            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800" alt="Próximo Proyecto">
-            <div class="portfolio-overlay">
-              <h3>Tu Marca Aquí</h3>
-              <p>Diseño Personalizado</p>
-              <a href="#contacto" class="btn" style="margin-top:10px;">Consultar</a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <section id="stats" class="stats-container">
-        <div class="grid" style="max-width: 1200px; margin: 0 auto; text-align: center;">
-          <div>
-            <span class="counter" data-target="15">0</span>
-            <p>Proyectos Lanzados</p>
-          </div>
-          <div>
-            <span class="counter" data-target="100">0</span>
-            <p>% Autoadministrables</p>
-          </div>
-          <div>
-            <span class="counter" data-target="24">0</span>
-            <p>Horas Soporte Record</p>
-          </div>
+    <section id="contacto" class="reveal">
+        <div class="contact-wrapper">
+            <div>
+                <h2>Hablemos de tu próximo gran paso.</h2>
+                <p style="opacity:0.6; margin-bottom: 2rem;">Estamos listos para transformar tu presencia online.</p>
+                <p><strong>Email:</strong> contacto.dotup@gmail.com</p>
+                <p><strong>WhatsApp:</strong> +56 9 9592 4177</p>
+            </div>
+            <form action="https://formspree.io/f/mlgwwnjy" method="POST">
+                <input type="text" name="name" placeholder="Nombre completo" required>
+                <input type="email" name="email" placeholder="Email corporativo" required>
+                <textarea name="message" rows="4" placeholder="Breve descripción del proyecto" required></textarea>
+                <button type="submit" class="btn" style="width: 100%;">ENVIAR CONSULTA</button>
+            </form>
         </div>
-    </section>
-
-    <section id="contacto">
-      <div class="contact-container">
-        <h2>¿Hablamos?</h2>
-        <p style="text-align: center; margin-bottom: 2rem;">Déjanos tus datos y te contactaremos en menos de 24 horas.</p>
-        <form action="https://formspree.io/f/mlgwwnjy" method="POST">
-          <input type="text" name="name" placeholder="Tu Nombre" required>
-          <input type="email" name="email" placeholder="Tu Email" required>
-          <input type="tel" name="phone" placeholder="WhatsApp (Ej: +569...)" required>
-          <textarea name="message" rows="5" placeholder="Cuéntanos de tu idea..." required></textarea>
-          <button type="submit" class="btn" style="width: 100%;">Enviar Mensaje</button>
-        </form>
-      </div>
     </section>
   </main>
 
   <footer>
-    <div class="logo">Dot<span>.</span>Up</div>
-    <p style="margin-top: 1rem; opacity: 0.7;">&copy; 2026 DotUp Web Studio - Santiago, Chile</p>
-    <div class="social-links">
-      <a href="https://instagram.com/dotup.cl" target="_blank">Instagram</a>
-      <a href="https://www.tiktok.com/@dotup.cl" target="_blank">TikTok</a>
-      <a href="mailto:contacto.dotup@gmail.com">Email</a>
-    </div>
+    <div class="logo" style="font-size: 1.5rem;">DOT<span>.</span>UP</div>
+    <p style="opacity: 0.4; font-size: 0.8rem; margin-top: 1rem;">&copy; 2026 DOTUP WEB STUDIO. SANTIAGO, CHILE.</p>
   </footer>
 
   <script>
-    // 1. Cambio de color del header al hacer scroll
+    // Header Effect
     window.addEventListener('scroll', () => {
       const header = document.getElementById('header');
-      if (window.scrollY > 80) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
+      header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // 2. Animación de los contadores numéricos
-    const counters = document.querySelectorAll('.counter');
-    const speed = 150;
-
-    const startCounters = () => {
-      counters.forEach(counter => {
-        const updateCount = () => {
-          const target = +counter.getAttribute('data-target');
-          const count = +counter.innerText.replace(/[^0-9]/g, '');
-          const inc = target / speed;
-
-          if (count < target) {
-            counter.innerText = Math.ceil(count + inc);
-            setTimeout(updateCount, 20);
-          } else {
-            counter.innerText = target + (target === 100 ? "%" : "+");
-          }
-        };
-        updateCount();
-      });
-    };
-
-    // 3. Observer para activar animaciones al hacer scroll
-    const observerOptions = { threshold: 0.2 };
-    
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          if (entry.target.id === 'stats') {
-            startCounters();
-          }
-          entry.target.style.opacity = "1";
-          entry.target.style.transform = "translateY(0)";
+    // Reveal Animation on Scroll
+    const reveal = () => {
+      const reveals = document.querySelectorAll('.reveal');
+      reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const elementVisible = 150;
+        if (elementTop < windowHeight - elementVisible) {
+          el.classList.add('active');
         }
       });
-    }, observerOptions);
+    }
 
-    document.querySelectorAll('section').forEach(section => {
-      section.style.opacity = "0";
-      section.style.transform = "translateY(30px)";
-      section.style.transition = "0.8s all ease-out";
-      sectionObserver.observe(section);
-    });
+    window.addEventListener('scroll', reveal);
+    reveal(); // Lanzar una vez al cargar
   </script>
 </body>
 </html>
